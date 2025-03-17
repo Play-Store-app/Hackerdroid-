@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Play</title>
+    <link rel="icon" type="image/png" href="https://uxwing.com/google-play-store-icon/">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .header img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+        .header h2 {
+            color: #3c4043;
+            font-size: 24px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .app-title {
+            display: flex;
+            align-items: center;
+        }
+        .app-title img {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+        }
+        .app-info {
+            margin-left: 10px;
+        }
+        .app-info h3 {
+            margin: 0;
+            color: black;
+        }
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+        }
+        .rating img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        .install-btn {
+            display: block;
+            width: 100%;
+            background-color: #1A73E8;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+        .about-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .about-section h3 {
+            margin: 0;
+            color: black;
+        }
+        .reviews {
+            margin-top: 20px;
+        }
+        .review {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .review img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .review-text {
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 600px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            position: relative;
+        }
+        .footer a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .footer img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        
+        .playstore-badge {
+    position: absolute;
+    right: 10px;
+    bottom: 50px;
+    width: 180px; /* Size increased */
+    height: auto;
+    max-width: 250px; /* Ensuring it doesn't exceed a limit */
+}
+
+        /* Image Gallery - Horizontal */
+        .image-gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px 0;
+        }
+        .thumbnail {
+            width: 150px;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 10px;
+        }
+        .thumbnail:hover {
+            opacity: 0.8;
+        }
+        #fullScreenImage {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+        #fullScreenImage img {
+            max-width: 90%;
+            max-height: 90%;
+            margin-top: 5%;
+        }
+        #closeBtn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        
+       /* More & Hide button styling */
+.more-btn, .hide-btn {
+    background-color: #1A73E8; /* Google blue */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+}
+.more-btn:hover, .hide-btn:hover {
+    background-color: #1558b0; /* Darker blue on hover */
+}
+.hide-btn {
+    display: none;
+}
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_Play_2022_icon.svg" alt="Google Play">
+        <h2>Google Play</h2>
+    </div>
+
+    <div class="container">
+        <div class="app-title">
+            <img src="logo.png" alt="App Logo">
+            <div class="app-info">
+                <h3>Hackdroid</h3>
+                <div>⭐ 4.9 • 10k reviews</div>
+            </div>
+        </div>
+
+        <a href="Hackdroid_Mod.apk" class="install-btn">Install</a>
+
+        <div class="image-gallery">
+            <img src="pic1.png" class="thumbnail" onclick="showFullScreen(this.src)">
+            <img src="pic2.png" class="thumbnail" onclick="showFullScreen(this.src)">
+            <img src="pic3.png" class="thumbnail" onclick="showFullScreen(this.src)">
+            <img src="pic4.png" class="thumbnail" onclick="showFullScreen(this.src)">
+        </div>
+
+        <div id="fullScreenImage">
+            <span id="closeBtn" onclick="closeFullScreen()">&times;</span>
+            <img id="fullImage">
+        </div>
+
+        <div class="reviews">
+            <h3>User Reviews</h3>
+            <div class="review">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User DP">
+                <div>
+                    <strong>Rahul Sharma</strong> ★★★★★<br>
+                    Amazing app! Very helpful for cybersecurity learning.
+                </div>
+            </div>
+            <div class="review">
+                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="User DP">
+                <div>
+                    <strong>Priya Gupta</strong> ★★★★★<br>
+                    Best ethical hacking tool ever! Works flawlessly.
+                </div>
+            </div>
+            <div class="hidden-reviews" id="hiddenReviews">
+                <div class="review">
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="User DP">
+                    <div>
+                        <strong>Neha Singh</strong> ★★★★★<br>
+                        Really impressed with the tools provided!
+                    </div>
+                </div>
+                <div class="review">
+                    <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="User DP">
+                    <div>
+                        <strong>Rohit Das</strong> ★★★★★<br>
+                        Super fast and secure! Love the interface.
+                    </div>
+                </div>
+            </div>
+            <button class="more-btn" onclick="showMore()">More</button>
+            <button class="hide-btn" onclick="hideMore()">Hide</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="https://t.me/SCARYBOLYOWNER_BOT">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" class="telegram-icon" alt="Telegram">
+            Contact Us
+        </a>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" class="playstore-badge" alt="Play Store">
+    </div>
+
+    <script>
+        function showFullScreen(src) {
+            document.getElementById("fullImage").src = src;
+            document.getElementById("fullScreenImage").style.display = "block";
+        }
+        function closeFullScreen() {
+            document.getElementById("fullScreenImage").style.display = "none";
+        }
+        function showMore() {
+            document.getElementById("hiddenReviews").style.display = "block";
+            document.querySelector(".more-btn").style.display = "none";
+            document.querySelector(".hide-btn").style.display = "block";
+        }
+        function hideMore() {
+            document.getElementById("hiddenReviews").style.display = "none";
+            document.querySelector(".more-btn").style.display = "block";
+            document.querySelector(".hide-btn").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
